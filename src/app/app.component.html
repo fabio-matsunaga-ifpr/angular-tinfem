@@ -1,0 +1,31 @@
+<router-outlet></router-outlet>
+
+<h1 class="titulo">{{ tituloPagina }}</h1>
+
+<div>
+  Valor da variável: {{ valor }}
+</div>
+
+<div>
+  <mat-form-field appearance="fill">
+    <mat-label>Qual seu nome?</mat-label>
+    <input matInput placeholder="Seu nome" [(ngModel)]="nome">
+  </mat-form-field>
+  <p *ngIf="nome.length>0">
+    Olá {{nome}}, tudo bem?
+  </p>
+</div>
+
+<h2>Cálculo</h2>
+<input type="number" [(ngModel)]="valor1" >
+<input type="number" [(ngModel)]="valor2" >
+<button mat-raised-button color="accent" type="button" (click)="calcular()">Calcular</button>
+<p>
+  Soma total: {{soma}}
+</p>
+
+<div>
+  <mat-slider min="0" max="100000" step="1000" showTickMarks discrete [displayWith]="formatLabel">
+    <input matSliderThumb>
+  </mat-slider>
+</div>
